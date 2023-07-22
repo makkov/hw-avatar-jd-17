@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static java.util.stream.Collectors.toList;
+
 @Service
 public class StudentService {
 
@@ -70,4 +72,21 @@ public class StudentService {
     public List<Student> getLastFiveStudent() {
         return studentRepository.getLastFiveStudentsById();
     }
+
+    public List<String> getNamesStartWithA() {
+        return studentRepository.findAll().stream()
+                .map(student -> student.getName().toUpperCase())
+                .filter(name -> name.startsWith("A"))
+                .sorted()
+                .collect(toList());
+    }
+
+    public double getAvgAge() {
+        return studentRepository.findAll().stream()
+                .mapToDouble(Student::getAge)
+                .average()
+                .getAsDouble();
+    }
+
+
 }

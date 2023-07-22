@@ -36,4 +36,19 @@ public class FacultyController {
     public Faculty delete(long id) {
         return facultyService.delete(id);
     }
+
+    @GetMapping("/longest-name")
+    public String getLongestName() {
+        return facultyService.getLongestName();
+    }
+
+    @GetMapping("/sum")
+    public Integer sum() {
+        return facultyService.sum();
+    }
+
+    @GetMapping("/sum-impr")
+    public Integer sumImpr() {
+        return facultyService.sumImpr();
+    }
 }

@@ -52,4 +52,14 @@ public class StudentController {
     public List<Student> getLastFiveStudent() {
         return studentService.getLastFiveStudent();
     }
+
+    @GetMapping("/names-start-with-a")
+    public List<String> getNamesStartWithA() {
+        return studentService.getNamesStartWithA();
+    }
+
+    @GetMapping("/avg-age")
+    public double getAvgAge() {
+        return studentService.getAvgAge();
+    }
 }
